@@ -15,6 +15,10 @@ def main():
         emailEntry.delete(0, END)
         senhaEntry.delete(0, END)
 
+    def deletar_user(email):
+        email = emailEntry.get()
+        services.remover_usuario(email)
+
     def listar_usuario():
         usuarios = services.listar_usuario()
 
@@ -82,6 +86,9 @@ def main():
 
     listar = Button(janela, text = 'Listar Usuários', width=15, command=listar_usuario)
     listar.place(x=200, y=200)
+
+    remover = Button(janela, text='Remover', width=10, command=lambda: deletar_user(email))
+    remover.place(x=100, y=230)
 
     janela.mainloop()
 
